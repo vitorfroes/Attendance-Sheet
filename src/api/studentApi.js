@@ -1,19 +1,31 @@
 import { handleResponse, handleError } from "./apiUtils";
 const baseUrl = process.env.REACT_APP_API_URL + "/students/";
 
-export function getStudent() {
+export function getStudents() {
   return fetch(baseUrl)
     .then(handleResponse)
     .catch(handleError);
 }
 
-export function getStudantByName(name) {
+export function getStudentByName(name) {
   return fetch(baseUrl + "?name=" + name)
     .then(response => {
       if (!response.ok) throw new Error("Network response was not ok.");
       return response.json().then(students => {
         if (students.length !== 1)
           throw new Error("Student not found: " + name);
+        return students[0]; // should only find one student for a given name, so return it.
+      });
+    })
+    .catch(handleError);
+}
+
+export function getStudentById(id) {
+  return fetch(baseUrl + "?id=" + id)
+    .then(response => {
+      if (!response.ok) throw new Error("Network response was not ok.");
+      return response.json().then(students => {
+        if (students.length !== 1) throw new Error("Student not found: " + id);
         return students[0]; // should only find one student for a given name, so return it.
       });
     })

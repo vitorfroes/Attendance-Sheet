@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { getStudent } from "../api/studentApi";
+import { getStudents } from "../api/studentApi";
 import StudentsList from "./StudentsList";
 
 class StudentsPage extends Component {
@@ -11,7 +11,7 @@ class StudentsPage extends Component {
   }
 
   componentDidMount() {
-    getStudent().then(students => {
+    getStudents().then(students => {
       this.setState({ students: students });
     });
   }
