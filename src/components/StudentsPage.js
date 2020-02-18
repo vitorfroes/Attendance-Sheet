@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { getStudents } from "../api/studentApi";
 import StudentsList from "./StudentsList";
+import { Link } from "react-router-dom";
 
 class StudentsPage extends Component {
   constructor(props) {
@@ -22,6 +23,10 @@ class StudentsPage extends Component {
         <h1>Students</h1>
 
         <br></br>
+
+        <Link className="btn btn-primary" to="/student">
+          Add Student
+        </Link>
 
         <StudentsList students={this.state.students} />
       </div>
