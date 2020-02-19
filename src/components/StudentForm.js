@@ -1,59 +1,57 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import TextInput from "./common/TextInput";
+import SelectInput from "./common/SelectInput";
+import { getClasses } from "../api/classApi";
 
 const StudentForm = props => {
+  const [classesList, setClassesList] = useState([]);
+  const genderList = [
+    { id: "Male", name: "Male" },
+    { id: "Female", name: "Female" }
+  ];
+
+  useEffect(() => {
+    getClasses().then(_classes => setClassesList(_classes));
+  }, []);
+
   return (
-    <form className="col-lg-6">
-      <div className="form-group">
-        <label htmlFor="name">Name</label>
-        <div className="field">
-          <input
-            id="name"
-            type="text"
-            name="name"
-            className="form-control"
-            value={props.student.name}
-            onChange={props.onNameChange}
-          />
-        </div>
-      </div>
+    <form className="col-lg-6" onSubmit={props.onSubmit}>
+      <TextInput
+        id="name"
+        label="Name"
+        name="name"
+        value={props.student.name}
+        onChange={props.onChange}
+      />
+
+      <SelectInput
+        id="class"
+        name="classId"
+        label="Class"
+        value={props.student.classId || ""}
+        onChange={props.onChange}
+        className="form-control"
+        option={classesList}
+      />
+
+      <SelectInput
+        id="gender"
+        name="gender"
+        label="Gender"
+        onChange={props.onChange}
+        value={props.student.gender}
+        option={genderList}
+      />
 
       <div className="form-group">
-        <label htmlFor="class">Class</label>
-        <div className="field">
-          <select
-            id="class"
-            name="classId"
-            value={props.student.classId || ""}
-            className="form-control"
-          >
-            <option value="" />
-            <option value="1">Cordeirinhos</option>
-            <option value="2">LPC</option>
-          </select>
-        </div>
-      </div>
-
-      <div className="form-group">
-        <label htmlFor="Gender">Gender</label>
-        <div className="field">
-          <input
-            type="text"
-            id="gender"
-            name="gender"
-            className="form-control"
-            value={props.student.gender}
-          />
-        </div>
-      </div>
-
-      <div className="form-group">
-        <label htmlFor="Gender">Age</label>
+        <label htmlFor="age">Age</label>
         <div className="field">
           <input
             type="number"
             id="age"
             name="age"
             className="form-control"
+            onChange={props.onChange}
             value={props.student.age || 0}
           />
         </div>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getStudentById } from "../api/studentApi";
+import { getStudentById, saveStudent } from "../api/studentApi";
 import StudentForm from "./StudentForm";
 
 const ManageStudentPage = props => {
@@ -11,10 +11,19 @@ const ManageStudentPage = props => {
     classId: null
   });
 
-  const handleNameChange = event => {
-    const updatedStudent = { ...student, name: event.target.value };
+  const handleChange = event => {
+    const updatedStudent = {
+      ...student,
+      [event.target.name]: event.target.value
+    };
 
     setStudent(updatedStudent);
+  };
+
+  const handleSubmit = event => {
+    event.preventDefault();
+
+    saveStudent(student);
   };
 
   useEffect(() => {
@@ -30,7 +39,11 @@ const ManageStudentPage = props => {
       <div className="jumbotron">
         <h1>Manage Student</h1>
 
-        <StudentForm student={student} onNameChange={handleNameChange} />
+        <StudentForm
+          student={student}
+          onChange={handleChange}
+          onSubmit={handleSubmit}
+        />
       </div>
     </>
   );

@@ -6,7 +6,6 @@ const StudentsList = props => {
     <table className="table table-response table-light table-hover">
       <thead className="thead-dark">
         <tr>
-          <th>Id</th>
           <th>Student</th>
           <th>Age</th>
           <th>Gender</th>
@@ -17,9 +16,8 @@ const StudentsList = props => {
           return (
             <tr key={student.id}>
               <td>
-                <Link to={"/student/" + student.id}>{student.id}</Link>
+                <Link to={"/student/" + student.id}>{student.name}</Link>
               </td>
-              <td>{student.name}</td>
               <td>{student.age}</td>
               <td>{student.gender}</td>
             </tr>

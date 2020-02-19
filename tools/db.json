@@ -1,1 +1,104 @@
-{"students":[{"id":1,"name":"Nicolas Freitas","age":8,"classId":1,"gender":"Male"},{"id":2,"name":"Luisa","age":14,"classId":1,"gender":"Female"},{"id":3,"name":"Vitória Fróes","age":17,"classId":1,"gender":"Female"},{"id":4,"name":"Sara Cristina","age":21,"classId":1,"gender":"Female"},{"id":5,"name":"Rafael Correa","age":29,"classId":1,"gender":"Male"},{"id":6,"name":"Hugo Maia","age":20,"classId":1,"gender":"Male"},{"id":7,"name":"Otávio Cruz","age":16,"classId":1,"gender":"Male"},{"id":8,"name":"Maria Victoria","age":16,"classId":1,"gender":"Female"},{"id":9,"name":"Maryanne Morais","age":17,"classId":1,"gender":"Female"},{"id":10,"name":"Severina Nunes","age":67,"classId":1,"gender":"Female"}],"classes":[{"id":1,"name":"Cordeirinhos"},{"id":2,"name":"LPC"},{"id":3,"name":"LDM"},{"id":4,"name":"Paul of Tarsus"},{"id":5,"name":"Rachel"}]}
+{
+  "students": [
+    {
+      "id": 1,
+      "name": "Nicolas Freitas",
+      "age": 8,
+      "classId": 1,
+      "gender": "Male"
+    },
+    {
+      "id": 2,
+      "name": "Luisa",
+      "age": 14,
+      "classId": 1,
+      "gender": "Female"
+    },
+    {
+      "id": 3,
+      "name": "Vitória Fróes",
+      "age": 17,
+      "classId": 1,
+      "gender": "Female"
+    },
+    {
+      "id": 4,
+      "name": "Sara Cristina",
+      "age": 21,
+      "classId": 1,
+      "gender": "Female"
+    },
+    {
+      "id": 5,
+      "name": "Rafael Correa",
+      "age": 29,
+      "classId": 1,
+      "gender": "Male"
+    },
+    {
+      "id": 6,
+      "name": "Hugo Maia",
+      "age": 20,
+      "classId": 1,
+      "gender": "Male"
+    },
+    {
+      "id": 7,
+      "name": "Otávio Cruz",
+      "age": 16,
+      "classId": 1,
+      "gender": "Male"
+    },
+    {
+      "id": 8,
+      "name": "Maria Victoria",
+      "age": 16,
+      "classId": 1,
+      "gender": "Female"
+    },
+    {
+      "id": 9,
+      "name": "Maryanne Morais",
+      "age": 17,
+      "classId": 1,
+      "gender": "Female"
+    },
+    {
+      "id": 10,
+      "name": "Severina Nunes",
+      "age": 67,
+      "classId": 1,
+      "gender": "Female"
+    },
+    {
+      "id": 11,
+      "name": "Vitor Fróes",
+      "gender": "Male",
+      "age": "21",
+      "classId": 3,
+      "createdAt": 1582141676541
+    }
+  ],
+  "classes": [
+    {
+      "id": 1,
+      "name": "Cordeirinhos"
+    },
+    {
+      "id": 2,
+      "name": "LPC"
+    },
+    {
+      "id": 3,
+      "name": "LDM"
+    },
+    {
+      "id": 4,
+      "name": "Paul of Tarsus"
+    },
+    {
+      "id": 5,
+      "name": "Rachel"
+    }
+  ]
+}
