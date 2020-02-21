@@ -86,9 +86,18 @@ const newStudent = {
   gender: ""
 };
 
+const newClass = {
+  id: null,
+  name: "",
+  maxAge: null,
+  minAge: null,
+  room: ""
+};
+
 // Using CommonJS style export so we can consume via Node (without using Babel-node)
 module.exports = {
   newStudent,
+  newClass,
   students,
   classes
 };

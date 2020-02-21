@@ -72,11 +72,11 @@
     },
     {
       "id": 11,
-      "name": "Vitor Fróes",
+      "name": "Cameron",
       "gender": "Male",
-      "age": "21",
-      "classId": 3,
-      "createdAt": 1582141676541
+      "age": "2",
+      "classId": 1,
+      "createdAt": 1582147200793
     }
   ],
   "classes": [

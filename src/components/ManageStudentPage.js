@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { getStudentById, saveStudent } from "../api/studentApi";
 import StudentForm from "./StudentForm";
+import { toast } from "react-toastify";
 
 const ManageStudentPage = props => {
+  const [errors, setErrors] = useState({});
+
   const [student, setStudent] = useState({
     id: null,
     name: "",
@@ -23,7 +26,21 @@ const ManageStudentPage = props => {
   const handleSubmit = event => {
     event.preventDefault();
 
-    saveStudent(student);
+    saveStudent(student).then(() => {
+      props.history.push("/students");
+      toast.success("A new student was created!");
+    });
+  };
+
+  const formIsValid = () => {
+    const _errors = {};
+
+    if (!student.name) _errors.name = "Name is required";
+    if (!student.classId) _errors.classId = "Class is required";
+    if (!student.gender) _errors.gender = "Gender is required";
+    if (!student.age) _errors.age = "Age is required";
+
+    setErrors(_errors);
   };
 
   useEffect(() => {

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const ClassesList = props => {
   return (
@@ -13,7 +14,9 @@ const ClassesList = props => {
         {props.classes.map(classObj => {
           return (
             <tr key={classObj.id}>
-              <td>{classObj.name}</td>
+              <td>
+                <Link to={"/class/" + classObj.id}>{classObj.name}</Link>
+              </td>
               <td>{classObj.id}</td>
             </tr>
           );
