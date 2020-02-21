@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import TextInput from "./common/TextInput";
 import SelectInput from "./common/SelectInput";
+import NumberInput from "./common/NumberInput";
+import PropTypes from "prop-types";
 import { getClasses } from "../api/classApi";
 
 const StudentForm = props => {
@@ -22,6 +24,7 @@ const StudentForm = props => {
         name="name"
         value={props.student.name}
         onChange={props.onChange}
+        error={props.errors.name}
       />
 
       <SelectInput
@@ -32,6 +35,7 @@ const StudentForm = props => {
         onChange={props.onChange}
         className="form-control"
         option={classesList}
+        error={props.errors.classId}
       />
 
       <SelectInput
@@ -41,25 +45,29 @@ const StudentForm = props => {
         onChange={props.onChange}
         value={props.student.gender}
         option={genderList}
+        error={props.errors.gender}
       />
 
-      <div className="form-group">
-        <label htmlFor="age">Age</label>
-        <div className="field">
-          <input
-            type="number"
-            id="age"
-            name="age"
-            className="form-control"
-            onChange={props.onChange}
-            value={props.student.age || 0}
-          />
-        </div>
-      </div>
+      <NumberInput
+        label="Age"
+        id="age"
+        name="age"
+        className="form-control"
+        onChange={props.onChange}
+        value={props.student.age}
+        error={props.errors.age}
+      />
 
       <input type="submit" value="Save" className="btn btn-primary" />
     </form>
   );
+};
+
+StudentForm.propTypes = {
+  student: PropTypes.object.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
+  errors: PropTypes.object.isRequired
 };
 
 export default StudentForm;

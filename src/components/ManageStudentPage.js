@@ -23,24 +23,34 @@ const ManageStudentPage = props => {
     setStudent(updatedStudent);
   };
 
+  const formIsValid = () => {
+    const _errors = {};
+
+    if (!student.name) _errors.name = "Name is required";
+    if (!student.classId || student.classId === "") {
+      _errors.classId = "Class is required";
+    }
+    if (!student.gender || student.gender === "") {
+      _errors.gender = "Gender is required";
+    }
+    if (!student.age) _errors.age = "Age is required";
+
+    setErrors(_errors);
+
+    return Object.keys(_errors).length === 0;
+  };
+
   const handleSubmit = event => {
     event.preventDefault();
+
+    if (!formIsValid()) {
+      return;
+    }
 
     saveStudent(student).then(() => {
       props.history.push("/students");
       toast.success("A new student was created!");
     });
-  };
-
-  const formIsValid = () => {
-    const _errors = {};
-
-    if (!student.name) _errors.name = "Name is required";
-    if (!student.classId) _errors.classId = "Class is required";
-    if (!student.gender) _errors.gender = "Gender is required";
-    if (!student.age) _errors.age = "Age is required";
-
-    setErrors(_errors);
   };
 
   useEffect(() => {
@@ -57,6 +67,7 @@ const ManageStudentPage = props => {
         <h1>Manage Student</h1>
 
         <StudentForm
+          errors={errors}
           student={student}
           onChange={handleChange}
           onSubmit={handleSubmit}

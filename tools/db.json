@@ -72,11 +72,11 @@
     },
     {
       "id": 11,
-      "name": "Cameron",
+      "name": "Jose",
       "gender": "Male",
-      "age": "2",
-      "classId": 1,
-      "createdAt": 1582147200793
+      "age": "26",
+      "classId": 2,
+      "createdAt": 1582291489922
     }
   ],
   "classes": [
