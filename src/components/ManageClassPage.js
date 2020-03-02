@@ -21,7 +21,7 @@ const ManageClassPage = props => {
   };
 
   const handleSubmit = event => {
-    event.preventDeafult();
+    event.preventDefault();
 
     saveClass(classObj);
   };
