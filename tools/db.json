@@ -9,7 +9,7 @@
     },
     {
       "id": 2,
-      "name": "Luisa de Freitas",
+      "name": "Luisa",
       "age": 14,
       "classId": 1,
       "gender": "Female"
@@ -69,6 +69,30 @@
       "age": 67,
       "classId": 1,
       "gender": "Female"
+    },
+    {
+      "id": 11,
+      "name": "Edson Silva",
+      "gender": "Male",
+      "age": "15",
+      "classId": 1,
+      "createdAt": 1583445538974
+    },
+    {
+      "id": 12,
+      "name": "Teste 01",
+      "gender": "Female",
+      "age": "2",
+      "classId": 1,
+      "createdAt": 1583445777821
+    },
+    {
+      "id": 13,
+      "name": "Teste 45",
+      "gender": "Male",
+      "age": "41",
+      "classId": 2,
+      "createdAt": 1583445924282
     }
   ],
   "classes": [
@@ -82,10 +106,7 @@
     },
     {
       "id": 3,
-      "name": "LDMasd",
-      "minAge": "123123",
-      "maxAge": "123123",
-      "room": "sadasd"
+      "name": "LDM"
     },
     {
       "id": 4,
@@ -94,14 +115,6 @@
     {
       "id": 5,
       "name": "Rachel"
-    },
-    {
-      "id": 6,
-      "name": "Test",
-      "maxAge": "45",
-      "minAge": "12",
-      "room": "Sup Floor",
-      "createdAt": 1583177934156
     }
   ]
 }

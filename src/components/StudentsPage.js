@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { getStudents } from "../api/studentApi";
 import StudentsList from "./StudentsList";
 import { Link } from "react-router-dom";
+import studentStore from "../stores/studentStore";
 
 class StudentsPage extends Component {
   constructor(props) {
@@ -12,9 +12,7 @@ class StudentsPage extends Component {
   }
 
   componentDidMount() {
-    getStudents().then(students => {
-      this.setState({ students: students });
-    });
+    this.setState(studentStore.getStudents());
   }
 
   render() {

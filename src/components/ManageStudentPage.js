@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { getStudentById, saveStudent } from "../api/studentApi";
 import StudentForm from "./StudentForm";
 import { toast } from "react-toastify";
+import studentStore from "../stores/studentStore";
+import * as studentActions from "../actions/studentAction";
 
 const ManageStudentPage = props => {
   const [errors, setErrors] = useState({});
@@ -47,7 +48,7 @@ const ManageStudentPage = props => {
       return;
     }
 
-    saveStudent(student).then(() => {
+    studentActions.saveStudent(student).then(() => {
       props.history.push("/students");
       toast.success("A new student was created!");
     });
@@ -55,9 +56,7 @@ const ManageStudentPage = props => {
 
   useEffect(() => {
     if (props.match.params.id) {
-      getStudentById(props.match.params.id).then(_student => {
-        setStudent(_student);
-      });
+      setStudent(studentStore.getStudentById(props.match.params.id));
     }
   }, [props.match.params.id]);
 
