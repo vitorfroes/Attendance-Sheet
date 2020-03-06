@@ -1,35 +1,35 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import StudentsList from "./StudentsList";
 import { Link } from "react-router-dom";
 import studentStore from "../stores/studentStore";
+import { loadStudents } from "../actions/studentAction";
 
-class StudentsPage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      students: []
-    };
+const StudentsPage = props => {
+  const [students, setStudents] = useState(studentStore.getStudents());
+
+  useEffect(() => {
+    studentStore.addChangeListener(onChange);
+    if (studentStore.getStudents().length === 0) loadStudents();
+    return () => studentStore.removeChangeListener(onChange); //cleanup on unmount
+  }, []);
+
+  function onChange() {
+    setStudents(studentStore.getStudents());
   }
 
-  componentDidMount() {
-    this.setState(studentStore.getStudents());
-  }
+  return (
+    <div className="jumbotron">
+      <h1>Students</h1>
 
-  render() {
-    return (
-      <div className="jumbotron">
-        <h1>Students</h1>
+      <br></br>
 
-        <br></br>
+      <Link className="btn btn-primary" to="/student">
+        Add Student
+      </Link>
 
-        <Link className="btn btn-primary" to="/student">
-          Add Student
-        </Link>
-
-        <StudentsList students={this.state.students} />
-      </div>
-    );
-  }
-}
+      <StudentsList students={students} />
+    </div>
+  );
+};
 
 export default StudentsPage;

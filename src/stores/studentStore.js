@@ -23,7 +23,12 @@ class StudentStore extends EventEmitter {
   }
 
   getStudentById(id) {
-    return _students.find(student => student.id === id);
+    console.log("Id: ", id);
+    let temp = _students.find(student => student.id === id);
+
+    console.log(_students);
+
+    return temp;
   }
 }
 
@@ -33,6 +38,16 @@ Dispatcher.register(action => {
   switch (action.actionType) {
     case actionTypes.CREATE_STUDENT:
       _students.push(action.student);
+      store.emitChange();
+      break;
+    case actionTypes.LOAD_STUDENTS:
+      _students = action.students;
+      store.emitChange();
+      break;
+    case actionTypes.UPDATE_STUDENT:
+      _students = _students.map(student =>
+        student.id === action.student.id ? action.student : student
+      );
       store.emitChange();
       break;
     default:
