@@ -23,12 +23,7 @@ class StudentStore extends EventEmitter {
   }
 
   getStudentById(id) {
-    console.log("Id: ", id);
-    let temp = _students.find(student => student.id === id);
-
-    console.log(_students);
-
-    return temp;
+    return _students.find(student => student.id === parseInt(id));
   }
 }
 
@@ -47,6 +42,12 @@ Dispatcher.register(action => {
     case actionTypes.UPDATE_STUDENT:
       _students = _students.map(student =>
         student.id === action.student.id ? action.student : student
+      );
+      store.emitChange();
+      break;
+    case actionTypes.DELETE_STUDENT:
+      _students = _students.filter(
+        student => student.id !== parseInt(action.id, 10)
       );
       store.emitChange();
       break;

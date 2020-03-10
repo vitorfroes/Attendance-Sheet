@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import StudentsList from "./StudentsList";
 import { Link } from "react-router-dom";
 import studentStore from "../stores/studentStore";
-import { loadStudents } from "../actions/studentAction";
+import { loadStudents, deleteStudent } from "../actions/studentAction";
 
 const StudentsPage = props => {
   const [students, setStudents] = useState(studentStore.getStudents());
@@ -27,7 +27,7 @@ const StudentsPage = props => {
         Add Student
       </Link>
 
-      <StudentsList students={students} />
+      <StudentsList students={students} deleteStudent={deleteStudent} />
     </div>
   );
 };

@@ -21,3 +21,12 @@ export function loadStudents() {
     });
   });
 }
+
+export function deleteStudent(id) {
+  return studentApi.deleteStudent(id).then(() => {
+    dispatcher.dispatch({
+      actionType: actionTypes.DELETE_STUDENT,
+      id: id
+    });
+  });
+}

@@ -6,7 +6,7 @@ import * as studentActions from "../actions/studentAction";
 
 const ManageStudentPage = props => {
   const [errors, setErrors] = useState({});
-
+  const [students, setStudents] = useState(studentStore.getStudents());
   const [student, setStudent] = useState({
     id: null,
     name: "",
@@ -14,6 +14,22 @@ const ManageStudentPage = props => {
     age: null,
     classId: null
   });
+
+  useEffect(() => {
+    studentStore.addChangeListener(onChange);
+
+    if (students.length === 0) {
+      studentActions.loadStudents();
+    } else if (props.match.params.id) {
+      setStudent(studentStore.getStudentById(props.match.params.id));
+    }
+
+    return () => studentStore.removeChangeListener(onChange);
+  }, [props.match.params.id, students.length]);
+
+  const onChange = () => {
+    setStudents(studentStore.getStudents());
+  };
 
   const handleChange = event => {
     const updatedStudent = {
@@ -53,12 +69,6 @@ const ManageStudentPage = props => {
       toast.success("A new student was created!");
     });
   };
-
-  useEffect(() => {
-    if (props.match.params.id) {
-      setStudent(studentStore.getStudentById(props.match.params.id));
-    }
-  }, [props.match.params.id]);
 
   return (
     <>
