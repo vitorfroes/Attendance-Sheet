@@ -10,7 +10,7 @@
     {
       "id": 2,
       "name": "Luisa de Freitas",
-      "age": 14,
+      "age": "12",
       "classId": 1,
       "gender": "Female"
     },
@@ -23,14 +23,14 @@
     },
     {
       "id": 4,
-      "name": "Sara Cristina Moreira",
-      "age": "21",
+      "name": "Sara Cristina",
+      "age": "22",
       "classId": 1,
       "gender": "Female"
     },
     {
       "id": 5,
-      "name": "Rafael Correa da Silva",
+      "name": "Rafael Correa",
       "age": 29,
       "classId": 1,
       "gender": "Male"
@@ -74,7 +74,10 @@
   "classes": [
     {
       "id": 1,
-      "name": "Cordeirinhos"
+      "name": "Cordeirinhos",
+      "minAge": "24",
+      "maxAge": "2",
+      "room": "Teste"
     },
     {
       "id": 2,

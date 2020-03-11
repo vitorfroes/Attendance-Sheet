@@ -1,5 +1,6 @@
 import React from "react";
 import TextInput from "./common/TextInput";
+import NumberInput from "./common/NumberInput";
 
 const ClassForm = props => {
   return (
@@ -12,33 +13,21 @@ const ClassForm = props => {
         onChange={props.onChange}
       />
 
-      <div className="form-group">
-        <label htmlFor="age">Min Age</label>
-        <div className="field">
-          <input
-            type="number"
-            id="minAge"
-            name="minAge"
-            className="form-control"
-            onChange={props.onChange}
-            value={props.classObj.minAge || 0}
-          />
-        </div>
-      </div>
+      <NumberInput
+        id="minAge"
+        label="Min Age"
+        name="minAge"
+        onChange={props.onChange}
+        value={props.classObj.minAge}
+      />
 
-      <div className="form-group">
-        <label htmlFor="age">Max Age</label>
-        <div className="field">
-          <input
-            type="number"
-            id="maxAge"
-            name="maxAge"
-            className="form-control"
-            onChange={props.onChange}
-            value={props.classObj.maxAge || 0}
-          />
-        </div>
-      </div>
+      <NumberInput
+        id="maxAge"
+        label="Max Age"
+        name="maxAge"
+        onChange={props.onChange}
+        value={props.classObj.maxAge}
+      />
 
       <TextInput
         id="room"

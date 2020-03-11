@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const NumberInput = props => {
   return (
@@ -11,12 +12,20 @@ const NumberInput = props => {
           name={props.name}
           className="form-control"
           onChange={props.onChange}
-          value={props.value || 0}
+          value={props.value}
         />
       </div>
       {props.error && <div className="alert alert-danger">{props.error}</div>}
     </div>
   );
+};
+
+NumberInput.propTypes = {
+  id: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  value: PropTypes.string.isRequired
 };
 
 export default NumberInput;

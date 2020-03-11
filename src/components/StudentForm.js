@@ -52,7 +52,6 @@ const StudentForm = props => {
         label="Age"
         id="age"
         name="age"
-        className="form-control"
         onChange={props.onChange}
         value={props.student.age}
         error={props.errors.age}
