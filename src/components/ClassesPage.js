@@ -1,14 +1,21 @@
 import React, { useState, useEffect } from "react";
-import { getClasses } from "../api/classApi";
 import ClassesList from "./ClassesList";
 import { Link } from "react-router-dom";
+import classStore from "../stores/classStore";
+import { loadClasses, deleteClass } from "../actions/classAction";
 
 const ClassesPage = () => {
   const [classes, setClasses] = useState([]);
 
   useEffect(() => {
-    getClasses().then(_classes => setClasses(_classes));
+    classStore.addChangeListener(onChange);
+    if (classStore.getClasses().length === 0) loadClasses();
+    return () => classStore.removeChangeListener(onChange);
   }, []);
+
+  function onChange() {
+    setClasses(classStore.getClasses());
+  }
 
   return (
     <>
@@ -21,7 +28,7 @@ const ClassesPage = () => {
           Add Class
         </Link>
 
-        <ClassesList classes={classes} />
+        <ClassesList classes={classes} deleteClass={deleteClass} />
       </div>
     </>
   );

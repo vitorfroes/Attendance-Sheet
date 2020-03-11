@@ -11,6 +11,7 @@ const ClassForm = props => {
         name="name"
         value={props.classObj.name}
         onChange={props.onChange}
+        error={props.errors.name}
       />
 
       <NumberInput
@@ -19,6 +20,7 @@ const ClassForm = props => {
         name="minAge"
         onChange={props.onChange}
         value={props.classObj.minAge}
+        error={props.errors.minAge}
       />
 
       <NumberInput
@@ -27,6 +29,7 @@ const ClassForm = props => {
         name="maxAge"
         onChange={props.onChange}
         value={props.classObj.maxAge}
+        error={props.errors.maxAge}
       />
 
       <TextInput
@@ -35,6 +38,7 @@ const ClassForm = props => {
         name="room"
         value={props.classObj.room}
         onChange={props.onChange}
+        error={props.errors.room}
       />
 
       <input type="submit" className="btn btn-primary" value="Save"></input>

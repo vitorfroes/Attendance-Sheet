@@ -19,10 +19,11 @@ class ClassStore extends EventEmitter {
   }
 
   getClasses() {
+    console.log(_classes);
     return _classes;
   }
 
-  getClassesById(id) {
+  getClassById(id) {
     return _classes.find(classObj => classObj.id === parseInt(id));
   }
 }
@@ -45,7 +46,7 @@ Dispatcher.register(action => {
       );
       store.emitChange();
       break;
-    case actionTypes.DELETE_STUDENT:
+    case actionTypes.DELETE_CLASS:
       _classes = _classes.filter(
         classObj => classObj.id !== parseInt(action.id, 10)
       );
@@ -55,3 +56,5 @@ Dispatcher.register(action => {
       break;
   }
 });
+
+export default store;

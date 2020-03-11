@@ -19,6 +19,7 @@ class StudentStore extends EventEmitter {
   }
 
   getStudents() {
+    console.log("Students: ", _students);
     return _students;
   }
 
