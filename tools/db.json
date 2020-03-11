@@ -2,7 +2,7 @@
   "students": [
     {
       "id": 1,
-      "name": "Nicolas de Freitas",
+      "name": "Nicolas Freitas",
       "age": 8,
       "classId": 1,
       "gender": "Male"
@@ -16,7 +16,7 @@
     },
     {
       "id": 3,
-      "name": "Vitória Fróes Souza",
+      "name": "Vitória Fróes",
       "age": 17,
       "classId": 1,
       "gender": "Female"
@@ -24,13 +24,13 @@
     {
       "id": 4,
       "name": "Sara Cristina Moreira",
-      "age": 21,
-      "classId": 3,
+      "age": "21",
+      "classId": 1,
       "gender": "Female"
     },
     {
       "id": 5,
-      "name": "Rafael Correa",
+      "name": "Rafael Correa da Silva",
       "age": 29,
       "classId": 1,
       "gender": "Male"
@@ -39,6 +39,13 @@
       "id": 6,
       "name": "Hugo Maia",
       "age": 20,
+      "classId": 1,
+      "gender": "Male"
+    },
+    {
+      "id": 7,
+      "name": "Otávio Cruz",
+      "age": 16,
       "classId": 1,
       "gender": "Male"
     },
@@ -53,6 +60,13 @@
       "id": 9,
       "name": "Maryanne Morais",
       "age": 17,
+      "classId": 1,
+      "gender": "Female"
+    },
+    {
+      "id": 10,
+      "name": "Severina Nunes",
+      "age": 67,
       "classId": 1,
       "gender": "Female"
     }

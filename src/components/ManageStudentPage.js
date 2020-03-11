@@ -66,7 +66,9 @@ const ManageStudentPage = props => {
 
     studentActions.saveStudent(student).then(() => {
       props.history.push("/students");
-      toast.success("A new student was created!");
+      //Verify if student exist to notify correctly user
+      if (student.id) toast.success("A student was updated!");
+      else toast.success("A new student was created!");
     });
   };
 
