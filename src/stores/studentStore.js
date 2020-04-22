@@ -19,18 +19,17 @@ class StudentStore extends EventEmitter {
   }
 
   getStudents() {
-    console.log("Students: ", _students);
     return _students;
   }
 
   getStudentById(id) {
-    return _students.find(student => student.id === parseInt(id));
+    return _students.find((student) => student.id === parseInt(id));
   }
 }
 
 const store = new StudentStore();
 
-Dispatcher.register(action => {
+Dispatcher.register((action) => {
   switch (action.actionType) {
     case actionTypes.CREATE_STUDENT:
       _students.push(action.student);
@@ -41,14 +40,14 @@ Dispatcher.register(action => {
       store.emitChange();
       break;
     case actionTypes.UPDATE_STUDENT:
-      _students = _students.map(student =>
+      _students = _students.map((student) =>
         student.id === action.student.id ? action.student : student
       );
       store.emitChange();
       break;
     case actionTypes.DELETE_STUDENT:
       _students = _students.filter(
-        student => student.id !== parseInt(action.id, 10)
+        (student) => student.id !== parseInt(action.id, 10)
       );
       store.emitChange();
       break;

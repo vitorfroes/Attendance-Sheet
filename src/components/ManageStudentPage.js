@@ -4,15 +4,15 @@ import { toast } from "react-toastify";
 import studentStore from "../stores/studentStore";
 import * as studentActions from "../actions/studentAction";
 
-const ManageStudentPage = props => {
+const ManageStudentPage = (props) => {
   const [errors, setErrors] = useState({});
   const [students, setStudents] = useState(studentStore.getStudents());
   const [student, setStudent] = useState({
     id: null,
     name: "",
     gender: "",
-    age: null,
-    classId: null
+    age: 0,
+    classId: null,
   });
 
   useEffect(() => {
@@ -31,10 +31,10 @@ const ManageStudentPage = props => {
     setStudents(studentStore.getStudents());
   };
 
-  const handleChange = event => {
+  const handleChange = (event) => {
     const updatedStudent = {
       ...student,
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
     };
 
     setStudent(updatedStudent);
@@ -57,7 +57,7 @@ const ManageStudentPage = props => {
     return Object.keys(_errors).length === 0;
   };
 
-  const handleSubmit = event => {
+  const handleSubmit = (event) => {
     event.preventDefault();
 
     if (!formIsValid()) {

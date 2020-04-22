@@ -3,22 +3,21 @@ import * as classApi from "../api/classApi";
 import actionTypes from "./actionTypes";
 
 export function saveClass(classObj) {
-  return classApi.saveClass(classObj).then(savedClass => {
+  return classApi.saveClass(classObj).then((savedClass) => {
     dispatcher.dispatch({
       actionType: classObj.id
         ? actionTypes.UPDATE_CLASS
-        : actionTypes.CREATE_STUDENT,
-      classObj: savedClass
+        : actionTypes.CREATE_CLASS,
+      classObj: savedClass,
     });
   });
 }
 
 export function loadClasses() {
-  return classApi.getClasses().then(classes => {
-    console.log(classes);
+  return classApi.getClasses().then((classes) => {
     dispatcher.dispatch({
       actionType: actionTypes.LOAD_CLASSES,
-      classes: classes
+      classes: classes,
     });
   });
 }
@@ -27,7 +26,7 @@ export function deleteClass(id) {
   return classApi.deleteClass(id).then(() => {
     dispatcher.dispatch({
       actionType: actionTypes.DELETE_CLASS,
-      id: id
+      id: id,
     });
   });
 }

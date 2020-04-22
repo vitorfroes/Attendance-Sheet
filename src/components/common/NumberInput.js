@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const NumberInput = props => {
+const NumberInput = (props) => {
   return (
     <div className="form-group">
       <label htmlFor={props.id}>{props.label}</label>
@@ -25,7 +25,7 @@ NumberInput.propTypes = {
   label: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
-  value: PropTypes.string.isRequired
+  value: PropTypes.number.isRequired,
 };
 
 export default NumberInput;

@@ -4,15 +4,15 @@ import classStore from "../stores/classStore";
 import * as classActions from "../actions/classAction";
 import { toast } from "react-toastify";
 
-const ManageClassPage = props => {
+const ManageClassPage = (props) => {
   const [classes, setClasses] = useState(classStore.getClasses());
   const [errors, setErrors] = useState({});
   const [classObj, setClassObj] = useState({
     id: null,
     name: "",
-    maxAge: null,
-    minAge: null,
-    room: ""
+    maxAge: 0,
+    minAge: 0,
+    room: "",
   });
 
   useEffect(() => {
@@ -31,16 +31,16 @@ const ManageClassPage = props => {
     setClasses(classStore.getClasses());
   };
 
-  const handleChange = event => {
+  const handleChange = (event) => {
     const updateClass = {
       ...classObj,
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
     };
 
     setClassObj(updateClass);
   };
 
-  const handleSubmit = event => {
+  const handleSubmit = (event) => {
     event.preventDefault();
 
     if (!formIsValid()) {

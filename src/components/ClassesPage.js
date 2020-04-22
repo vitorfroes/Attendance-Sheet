@@ -5,7 +5,7 @@ import classStore from "../stores/classStore";
 import { loadClasses, deleteClass } from "../actions/classAction";
 
 const ClassesPage = () => {
-  const [classes, setClasses] = useState([]);
+  const [classes, setClasses] = useState(classStore.getClasses());
 
   useEffect(() => {
     classStore.addChangeListener(onChange);
